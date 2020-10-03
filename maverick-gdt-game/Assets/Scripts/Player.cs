@@ -106,7 +106,13 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Vector3 p = cam.transform.position;
         cam.transform.parent = null;
+        cam.transform.position = p;
+        ScreenShake shake = cam.GetComponent<ScreenShake>();
+        shake.originalPos = p;
+        shake.shakeAmount = 1f;
+        shake.shakeDuration = 1f;
         game_manager.EndGame();
         GameObject e = Instantiate(death_effect);
         e.transform.position = gameObject.transform.position;

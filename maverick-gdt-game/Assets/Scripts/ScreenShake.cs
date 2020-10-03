@@ -14,7 +14,7 @@ public class ScreenShake : MonoBehaviour
     public float shakeAmount = 0.7f;
     public float decreaseFactor = 1.0f;
 
-    Vector3 originalPos;
+    public Vector3 originalPos;
 
     void Awake()
     {

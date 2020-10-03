@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(player == null)
+        {
+            return;
+        }
+
         spawn_timer += Time.deltaTime;
 
         if(spawn_timer > spawn_rate_initial)
@@ -59,7 +64,7 @@ public class GameManager : MonoBehaviour
             e.screen_shake = screen_shake;
         }
 
-        spawn_rate_initial = Mathf.Min(spawn_rate_max, spawn_rate_initial + spawnrate_gain * Time.deltaTime);
+        spawn_rate_initial = Mathf.Max(spawn_rate_max, spawn_rate_initial - spawnrate_gain * Time.deltaTime);
         enemy_speed_initial = Mathf.Min(enemy_speed_max, enemy_speed_initial + enemy_speed_gain * Time.deltaTime);
     }
 
