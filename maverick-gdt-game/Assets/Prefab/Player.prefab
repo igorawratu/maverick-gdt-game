@@ -269,8 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max_shooting_chargetime: 1
-  max_bullet_force: 100
-  bullet_force_gain: 1
+  max_bullet_force: 25
+  bullet_force_gain: 25
   movement_speed: 1
   rotation_speed: 5
   gun: {fileID: 1317644513186211171}
@@ -278,4 +278,5 @@ MonoBehaviour:
     type: 3}
   death_effect: {fileID: 1820338684516863308, guid: 2301f974c2bc8e041bf226fd8f4fef36,
     type: 3}
-  camera: {fileID: 1317644513214855034}
+  cam: {fileID: 0}
+  game_manager: {fileID: 0}

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject player;
     public GameObject enemy_prefab;
+    public ScreenShake screen_shake;
 
     public float spawn_rate_max = 10f;
     public float enemy_speed_max = 2f;
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
             e.player = player;
             e.speed = enemy_speed_initial;
             e.game_manager = this;
+            e.screen_shake = screen_shake;
         }
 
         spawn_rate_initial = Mathf.Min(spawn_rate_max, spawn_rate_initial + spawnrate_gain * Time.deltaTime);

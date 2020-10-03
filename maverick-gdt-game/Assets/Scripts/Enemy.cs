@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     public GameObject death_effect;
 
     public GameManager game_manager;
+
+    public ScreenShake screen_shake;
     
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class Enemy : MonoBehaviour
     {
         if(other.gameObject.GetComponent<Bullet>() != null)
         {
+            screen_shake.shakeDuration = 0.4f;
             game_manager.IncrementScore();
             GameObject e = Instantiate(death_effect);
             e.transform.position = gameObject.transform.position;

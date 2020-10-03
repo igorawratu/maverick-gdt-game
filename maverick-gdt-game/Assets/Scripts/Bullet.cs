@@ -6,7 +6,6 @@ public class Bullet : MonoBehaviour
 {
     public GameObject player;
     public GameObject fire_effect;
-    public GameObject hit_effect;
 
     // Use this for initialization
     void Start()
@@ -18,16 +17,9 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((player.transform.position - gameObject.transform.position).magnitude > 500f)
+        if ((player.transform.position - gameObject.transform.position).magnitude > 250f)
         {
             Destroy(gameObject);
         }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        GameObject he = Instantiate(hit_effect);
-        he.gameObject.transform.position = gameObject.transform.position;
-        Destroy(gameObject);
     }
 }
