@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour
     public float bullet_force_gain = 1f;
     public float movement_speed = 1f;
     public float rotation_speed = 5f;
+    public float min_bullet_force = 0.25f;
 
     public GameObject gun;
     public GameObject bullet_prefab;
@@ -16,6 +18,8 @@ public class Player : MonoBehaviour
     public GameObject cam;
 
     public GameManager game_manager;
+
+    public Slider slider;
 
     private float current_bullet_force_ = 0f;
     private Vector3 last_mouse_pos = Vector3.zero;
@@ -31,13 +35,13 @@ public class Player : MonoBehaviour
     {
         Move();
         //version 1
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             ShootV1();
-        }
+        }*/
 
         //version 2
-        /*
+        
         if (Input.GetMouseButton(0))
         {
             current_bullet_force_ = Mathf.Min(current_bullet_force_ + Time.deltaTime * bullet_force_gain, max_bullet_force);
@@ -46,7 +50,9 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             ShootV2();
-        }*/
+        }
+
+        slider.value = current_bullet_force_ / max_bullet_force;
     }
 
     private void Move()
@@ -90,7 +96,10 @@ public class Player : MonoBehaviour
 
     private void ShootV2()
     {
-        Shoot(current_bullet_force_);
+        if(current_bullet_force_ > min_bullet_force)
+        {
+            Shoot(current_bullet_force_);
+        }
         current_bullet_force_ = 0f;
     }
 
@@ -100,12 +109,18 @@ public class Player : MonoBehaviour
 
         GameObject bullet = Instantiate(bullet_prefab);
         bullet.transform.position = gun.transform.position;
+        bullet.transform.localScale = new Vector3(Mathf.Max(0.05f, power / 50f), Mathf.Max(0.05f, power / 50f), Mathf.Max(0.05f, power / 50f));
         bullet.GetComponent<Rigidbody>().velocity = direction * power;
         bullet.GetComponent<Bullet>().player = gameObject;
     }
 
     void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.GetComponent<Enemy>() == null)
+        {
+            return;
+        }
+
         Vector3 p = cam.transform.position;
         cam.transform.parent = null;
         cam.transform.position = p;

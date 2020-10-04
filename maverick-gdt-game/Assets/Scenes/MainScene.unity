@@ -374,12 +374,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b4c206389215c4db46ee360c6c56ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!20 &963194230 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1317644513214855032, guid: be9bcac68de960e4a905233617179f4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1317644513358961163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &970852974 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1317644513222512741, guid: be9bcac68de960e4a905233617179f4d,
     type: 3}
   m_PrefabInstance: {fileID: 1317644513358961163}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1317317789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1317317789, guid: 6c9b72fb261731b47b45282cb378a226,
+    type: 3}
+  m_PrefabInstance: {fileID: 1450893545170117888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1490507796
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,6 +481,11 @@ PrefabInstance:
       propertyPath: game_manager
       value: 
       objectReference: {fileID: 839242837}
+    - target: {fileID: 1317644513222512760, guid: be9bcac68de960e4a905233617179f4d,
+        type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 1317317789}
     - target: {fileID: 1317644513222512761, guid: be9bcac68de960e4a905233617179f4d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -527,6 +550,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2089691871, guid: 6c9b72fb261731b47b45282cb378a226, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1450893544330916181, guid: 6c9b72fb261731b47b45282cb378a226,
         type: 3}
       propertyPath: player
@@ -542,6 +569,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1450893544797157368, guid: 6c9b72fb261731b47b45282cb378a226,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 963194230}
     - target: {fileID: 1450893544797157369, guid: 6c9b72fb261731b47b45282cb378a226,
         type: 3}
       propertyPath: m_LocalPosition.x

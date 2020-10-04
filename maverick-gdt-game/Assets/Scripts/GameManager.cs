@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         player.GetComponent<Player>().game_manager = this;
+        //Cursor.visible = false;
     }
 
     // Start is called before the first frame update
